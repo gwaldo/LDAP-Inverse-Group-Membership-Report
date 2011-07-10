@@ -1,0 +1,8 @@
+So, before publishing this script, when your boss asked "Who's not in these [arbitrary number of] groups?", you had at best two choices:
+1) Convince your boss that's it's a tedious, if not impossible, task, or
+2) Whip out Excel, take some ibuprofen to stave off the RSI, and block off a few days.
+(Sometimes you don't have a choice...)
+
+
+Group names to check are provided as command-line arguments.  (Minimum of one group must be provided.)  If they have spaces in the names, they must be wrapped in double-quotes.  Since the Distinguished Names are needed, the script will search LDAP for them based on the Common (short) Names you provide.  If they aren't found, it will warn you and quit.
+After providing the Groups' DNs, it will gather all User objects in LDAP and report each user who is not a member of at least one of the groups.  The report is a logfile which is date- and time-stamped for uniqueness, so that it may be run consecutively without fear that subsequent runs will overwrite your last run.
